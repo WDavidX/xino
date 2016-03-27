@@ -26,7 +26,8 @@
 // LCD parameters
 #define DISPLAY_W 20     
 #define DISPLAY_H 4     
-#define DISPLAY_I2CADDR 0x27 
+//#define DISPLAY_I2CADDR 0x27 
+#define DISPLAY_I2CADDR 0x3f
 #define DISPLAY_LINE_STARTPOS 3
 
 // Uncomment whatever type you're using!
@@ -73,15 +74,16 @@ void setup() {
   lcd.print("DHT PIN at  ");
   lcd.print(DHT_PIN);
 
-  lcd.setCursor(3,1);
+  lcd.setCursor(3,2);
   lcd.print("OneWire at  ");
-  lcd.print(DHT_PIN);
+  lcd.print(OneWire_Bus_PIN);
 
-  lcd.setCursor(3,4);
+  lcd.setCursor(3,3);
   lcd.print("Sensors     ");
   lcd.print(count_ds18b20);
 
   delay(2000);
+  lcd.noBacklight();
   lcd.clear();
   //TXLED0;
   //RXLED0;
